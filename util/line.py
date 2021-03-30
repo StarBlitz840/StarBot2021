@@ -3,7 +3,7 @@ from robot import Robot
 BLACK = 0
 WHITE = 100
 
-def drive_until_line(drive_speed)
+def drive_until_line(drive_speed):
     Robot.chassis.drive(drive_speed, 0)
 
     while Robot.color_left.reflection() > BLACK + 5 and Robot.color_right.reflection() > BLACK + 5:
