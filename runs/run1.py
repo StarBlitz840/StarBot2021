@@ -2,4 +2,5 @@ from robot import Robot
 name = "run1"
 
 def start():
-    Robot.chassis.straight(1000)
+    gyro_turn(90, 500)
+    gyro_turn(-60, 200)
