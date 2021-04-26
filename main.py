@@ -1,33 +1,25 @@
 #!/usr/bin/env pybricks-micropython
 from pybricks.parameters import Button
-import pybricks.tools as tools
 from util import buttons
 from robot import Robot
-from runs import *
+from runs import run3, run2
+
+button_codes = [Button.UP, Button.RIGHT, Button.DOWN, Button.LEFT, Button.CENTER]
+button_symbols = [" ^ ", " > ", " v ", " < ", "[] "]
+runs = [run2, run3]
 
 def display_menu():
   Robot.brick.screen.clear()
-  Robot.brick.screen.print(" ^ " + run1.name)
-  #Robot.brick.screen.print(" > " + .name)
-  #Robot.brick.screen.print(" v " + .name)
-  #Robot.brick.screen.print(" < " + .name)
-  #Robot.brick.screen.print("[] " + .name)
+
+  for i in range(len(runs)):
+    Robot.brick.screen.print(button_symbols[i] + runs[i].name)
 
 while True:
   display_menu()
 
   btn = buttons.wait_for_any_press()
-  print(btn)
+  btn_index = button_codes.index(btn)
 
-  if(btn==Button.UP):
-    run1.start()
-    pass
-  elif(btn==Button.RIGHT):
-    pass
-  elif(btn==Button.DOWN):
-    pass
-  elif(btn==Button.LEFT):
-    pass
-  elif(btn==Button.CENTER):
-    #your run here
-    pass
+  Robot.brick.screen.clear()
+
+  runs[btn_index].start()
