@@ -12,8 +12,8 @@ class Robot():
   wheel_left = Motor(Port.B)
   wheel_right = Motor(Port.C)
 
-  arm_left = Motor(Port.A)
-  arm_right = Motor(Port.D)
+  arm_left = Motor(Port.D)
+  arm_right = Motor(Port.A)
 
   gyro = GyroSensor(Port.S1, Direction.COUNTERCLOCKWISE)
   color_left = ColorSensor(Port.S2)
@@ -21,6 +21,23 @@ class Robot():
 
   chassis = DriveBase(wheel_left, wheel_right, wheel_diameter=49.5, axle_track=150)
  
+  @classmethod
+  def reset_settings():
+    cls.chassis.settings(115, 460, 88, 352)
+
+  @classmethod
+  def settings(straight_speed=None, 
+               straight_acceleration=None, 
+               turn_rate=None, 
+               turn_acceleration=None):
+    cls.chassis.stop() #Settings can only be changed while stopped
+    current_settings = cls.chassis.settings()
+    cls.chassis.settings(straight_speed if straignt_speed is not None else current_settings[0],
+                     straight_acceleration if straight_acceleration is not None else current_settings[1],
+                     turn_rate if turn_rate is not None else current_settings[2],
+                     turn_acceleration if turn_acceleration is not None else current_settings[3])
+
+
   @classmethod
   def brake(cls):
     cls.chassis.stop()
