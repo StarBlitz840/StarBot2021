@@ -22,4 +22,5 @@ while True:
 
   Robot.brick.screen.clear()
 
+  Robot.reset_settings()
   runs[btn_index].start()
