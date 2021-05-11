@@ -9,11 +9,24 @@ class Robot():
   #robot hardware
   brick = EV3Brick()
 
+<<<<<<< HEAD
   wheel_left = Motor(Port.A)
   wheel_right = Motor(Port.B)
 
   arm_left = Motor(Port.D)
   arm_right = Motor(Port.C)
+=======
+  ONE = Motor(Port.A)
+  TWO = Motor(Port.B)
+  THREE = Motor(Port.C)
+  FOUR = Motor(Port.D)
+
+  wheel_left = ONE
+  wheel_right = THREE
+
+  arm_left = FOUR
+  arm_right = TWO
+>>>>>>> 20e300d720847147efd934a2826d2504f19b11e9
 
   gyro = GyroSensor(Port.S1, Direction.COUNTERCLOCKWISE)
   color_left = ColorSensor(Port.S2)
