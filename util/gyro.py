@@ -16,7 +16,7 @@ def gyro_turn(angle, speed, range):
 def follow_angle(target, distance, kp, drive_speed):
   Robot.chassis.reset()
   Robot.chassis.drive(drive_speed, 0)
-  while Robot.chassis.distance() < distance:
+  while abs(Robot.chassis.distance()) < distance:
     error = target - Robot.gyro.angle()
     Robot.chassis.drive(drive_speed, error * kp)
 
