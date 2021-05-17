@@ -1,9 +1,18 @@
 from robot import Robot
 from util import gyro
-from pybricks.parameters import Stop
+from pybricks.parameters import Stop, Button
+from util import buttons
 name = "run3"
 
+#גמור (עובד 4 מ5 פעמים)
 def start():
+    while buttons.button_pressed(Button.CENTER) == False:
+        if buttons.button_pressed(Button.UP):
+            Robot.arm_left.run(100)
+        elif buttons.button_pressed(Button.DOWN):
+            Robot.arm_left.run(-100)
+        else:
+            Robot.arm_left.brake()
     #M04 + M01 + M14
     # "ספסל,יחידות בריאות, פרוייקט חדשנות"
     Robot.settings(straight_speed = 650)
@@ -23,4 +32,4 @@ def start():
 
     gyro.gyro_turn(60, 100, 1)
     Robot.chassis.straight(-425)
-    Robot.brake()
+    Robot.chassis.stop()
