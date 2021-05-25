@@ -22,6 +22,7 @@ def start():
     #מגיעים לספסל והתיישרות
     #מרימים את המשענת
     Robot.arm_left.run_angle(-200, 100)
+    Robot.arm_left.run_angle(-600, 100)
     Robot.chassis.straight(5)
     gyro.gyro_turn(-3, 100, 1)
     # #מפילים את י"ב ואת הפ"ח
@@ -32,4 +33,4 @@ def start():
 
     gyro.gyro_turn(60, 100, 1)
     Robot.chassis.straight(-425)
-    Robot.chassis.stop()
+    Robot.brake()

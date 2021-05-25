@@ -51,10 +51,5 @@ def start():
     wait(100)
     gyro.gyro_turn(-30, 50, 3)
     wait(100)
-  Robot.chassis.stop()
-    # Robot.arm_left.run_angle(-60, 45)
-    # gyro.gyro_turn(60, 100, 3)
-    # wait(150)
-    # Robot.arm_left.run_angle(-60, -45)
-    # gyro.gyro_turn(60, 100, 3)
-    # wait(150)
+  Robot.brake()
+   
